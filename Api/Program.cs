@@ -1,8 +1,8 @@
-using Core.UseCases.GetProduct;
-using Infrastructure.Repositories;
 using Core.Contracts.DiscountClient;
 using Core.Contracts.ProductRepository;
+using Core.UseCases.GetProduct;
 using Infrastructure.Clients.DIscountClient; // added
+using Infrastructure.Repositories;
 
 namespace Api;
 

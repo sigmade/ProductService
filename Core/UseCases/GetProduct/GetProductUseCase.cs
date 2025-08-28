@@ -1,7 +1,5 @@
 using Core.Contracts.DiscountClient;
-using Core.Contracts.DiscountClient.Models;
 using Core.Contracts.ProductRepository;
-using Core.Contracts.ProductRepository.Models;
 using Core.UseCases.GetProduct.Models;
 
 namespace Core.UseCases.GetProduct;
@@ -14,16 +12,13 @@ public class GetProductUseCase(
 
     public async Task<ProductResult> Execute(ProductQuery query)
     {
-        var productDataResult = await _productRepository.GetById(new ProductDataQuery { Id = query.Id });
+        var productDataQuery = query.ToProductDataQuery();
+        var productDataResult = await _productRepository.GetById(productDataQuery);
         var productCoreResult = productDataResult.ToResult();
+        var discountDataQuery = query.ToDiscountQuery();
+        var discountDataResult = await _discountClient.GetDiscountForProduct(discountDataQuery);
+        var discount = discountDataResult.DiscountValue;
 
-        var discountRequest = new DiscountDataQuery
-        {
-            ProductId = query.Id,
-            BasePrice = productCoreResult.Price
-        };
-        var discountResult = await _discountClient.GetDiscountForProduct(discountRequest);
-        var discount = discountResult.DiscountValue;
         if (discount > 0 && discount < 1)
         {
             productCoreResult.Price = decimal.Round(productCoreResult.Price * (1 - discount), 2);
