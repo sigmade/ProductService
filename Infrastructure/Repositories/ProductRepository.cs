@@ -1,4 +1,5 @@
-using Core.Contracts;
+using Core.Contracts.ProductRepository;
+using Core.Contracts.ProductRepository.Models;
 using Infrastructure.Models;
 
 namespace Infrastructure.Repositories;

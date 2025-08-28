@@ -1,6 +1,7 @@
-﻿using Core.Contracts;
+﻿using Core.Contracts.ProductRepository.Models;
+using Core.UseCases.GetProduct.Models;
 
-namespace Core.Models;
+namespace Core;
 
 public static class CoreMapper
 {

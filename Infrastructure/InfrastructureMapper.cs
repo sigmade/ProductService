@@ -1,6 +1,7 @@
-﻿using Core.Contracts;
+﻿using Core.Contracts.ProductRepository.Models;
+using Infrastructure.Repositories.Models;
 
-namespace Infrastructure.Models;
+namespace Infrastructure;
 
 public static class InfrastructureMapper
 {

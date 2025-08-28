@@ -1,6 +1,6 @@
 using Core.Contracts;
 
-namespace Infrastructure.Models;
+namespace Infrastructure.Repositories.Models;
 
 public class ProductSourceModel
 {

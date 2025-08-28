@@ -1,4 +1,4 @@
-using Core.Models;
+using Core.UseCases.GetProduct.Models;
 
 namespace Core.UseCases.GetProduct;
 
