@@ -1,16 +1,16 @@
 using Core.Contracts.ProductRepository;
 using Core.Contracts.ProductRepository.Models;
-using Infrastructure.Models;
+using Infrastructure.Repositories.Models;
 
 namespace Infrastructure.Repositories;
 
 public class ProductRepository : IProductRepository
 {
-    public async Task<ProductDataResult> GetByIdAsync(int id)
+    public async Task<ProductDataResult> GetById(ProductDataQuery query)
     {
         var productSourceModel = new ProductSourceModel
         {
-            Id = id,
+            Id = query.Id,
             Name = "Sample Product",
             Price = 19.99m
         };

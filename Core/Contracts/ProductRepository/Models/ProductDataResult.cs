@@ -1,5 +1,3 @@
-using Core.Models;
-
 namespace Core.Contracts.ProductRepository.Models;
 
 public class ProductDataResult

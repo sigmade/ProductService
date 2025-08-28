@@ -1,6 +1,8 @@
+using Core.Contracts.DiscountClient.Models;
+
 namespace Core.Contracts.DiscountClient;
 
 public interface IDiscountClient
 {
-    Task<decimal> GetDiscountForProductAsync(int productId);
+    Task<DiscountDataResult> GetDiscountForProduct(DiscountDataQuery dataQuery);
 }

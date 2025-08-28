@@ -1,5 +1,6 @@
 using Api.Models;
 using Core.UseCases.GetProduct;
+using Core.UseCases.GetProduct.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers;
@@ -13,7 +14,7 @@ public class ProductController(IGetProductUseCase getProductUseCase) : Controlle
     [HttpGet("{id}")]
     public async Task<ActionResult<ProductResponse>> GetProduct(int id)
     {
-        var productCoreResult = await _getProductUseCase.Execute(id);
+        var productCoreResult = await _getProductUseCase.Execute(new ProductCoreQuery { Id = id });
         var productResponse = productCoreResult.ToResponse();
 
         return Ok(productResponse);

@@ -4,5 +4,5 @@ namespace Core.Contracts.ProductRepository;
 
 public interface IProductRepository
 {
-    Task<ProductDataResult> GetByIdAsync(int id);
+    Task<ProductDataResult> GetById(ProductDataQuery query);
 }

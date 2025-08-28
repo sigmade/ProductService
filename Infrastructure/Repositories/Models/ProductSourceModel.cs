@@ -1,5 +1,3 @@
-using Core.Contracts;
-
 namespace Infrastructure.Repositories.Models;
 
 public class ProductSourceModel
