@@ -4,5 +4,5 @@ namespace Core.UseCases.GetProduct;
 
 public interface IGetProductUseCase
 {
-    Task<ProductCoreResult> Execute(ProductCoreQuery query);
+    Task<ProductResult> Execute(ProductQuery query);
 }

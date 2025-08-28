@@ -1,6 +1,6 @@
 namespace Core.UseCases.GetProduct.Models;
 
-public class ProductCoreQuery
+public class ProductQuery
 {
     public int Id { get; set; }
 }

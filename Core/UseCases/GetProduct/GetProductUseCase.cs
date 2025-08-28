@@ -12,7 +12,7 @@ public class GetProductUseCase(
     private readonly IProductRepository _productRepository = productRepository;
     private readonly IDiscountClient _discountClient = discountClient;
 
-    public async Task<ProductCoreResult> Execute(ProductCoreQuery query)
+    public async Task<ProductResult> Execute(ProductQuery query)
     {
         var productDataResult = await _productRepository.GetById(new ProductDataQuery { Id = query.Id });
         var productCoreResult = productDataResult.ToResult();

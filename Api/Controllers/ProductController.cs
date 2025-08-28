@@ -14,7 +14,7 @@ public class ProductController(IGetProductUseCase getProductUseCase) : Controlle
     [HttpGet("{id}")]
     public async Task<ActionResult<ProductResponse>> GetProduct(int id)
     {
-        var productCoreResult = await _getProductUseCase.Execute(new ProductCoreQuery { Id = id });
+        var productCoreResult = await _getProductUseCase.Execute(new ProductQuery { Id = id });
         var productResponse = productCoreResult.ToResponse();
 
         return Ok(productResponse);
