@@ -13,10 +13,14 @@ public class GetProductUseCase(
     public async Task<ProductResult> Execute(ProductQuery query)
     {
         var productDataQuery = query.ToProductDataQuery();
+
         var productDataResult = await _productRepository.GetById(productDataQuery);
+
         var productCoreResult = productDataResult.ToResult();
         var discountDataQuery = query.ToDiscountQuery();
+
         var discountDataResult = await _discountClient.GetDiscountForProduct(discountDataQuery);
+
         var discount = discountDataResult.DiscountValue;
 
         if (discount > 0 && discount < 1)
