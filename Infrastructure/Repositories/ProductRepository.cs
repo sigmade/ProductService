@@ -4,8 +4,20 @@ using Infrastructure.Repositories.Models;
 
 namespace Infrastructure.Repositories;
 
+/// <summary>
+/// Demo in-memory implementation of <see cref="IProductRepository"/> used for development/testing.
+/// </summary>
+/// <remarks>
+/// This stub returns a static sample product for any requested id. Replace with a real data access implementation
+/// (e.g., EF Core, Dapper, HTTP gateway) to fetch persisted product records.
+/// </remarks>
 public class ProductRepository : IProductRepository
 {
+    /// <summary>
+    /// Retrieves a product by id (demo logic returning a fixed sample record with provided id).
+    /// </summary>
+    /// <param name="query">Repository query containing the product identifier.</param>
+    /// <returns>A <see cref="ProductDataResult"/> representing the product.</returns>
     public Task<ProductDataResult> GetById(ProductDataQuery query)
     {
         var productSourceModel = new ProductSourceModel
