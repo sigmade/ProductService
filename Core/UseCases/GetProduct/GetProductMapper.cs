@@ -11,7 +11,7 @@ public static class GetProductMapper
         {
             Id = src.Id,
             Name = src.Name,
-            Price = src.Price
+            Price = src.BasePrice
         };
         return result;
     }

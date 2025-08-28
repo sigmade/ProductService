@@ -1,7 +1,7 @@
 using Core.Contracts.DiscountClient;
 using Core.Contracts.DiscountClient.Models;
 
-namespace Infrastructure.Clients.DIscountClient;
+namespace Infrastructure.Clients.DiscountClient;
 
 public class DiscountClient : IDiscountClient
 {
@@ -11,9 +11,7 @@ public class DiscountClient : IDiscountClient
         var discount = query.ProductId % 2 == 0 ? 0.10m : 0m;
         var result = new DiscountDataResult
         {
-            ProductId = query.ProductId,
             DiscountValue = discount,
-            Source = "DemoRule"
         };
         return Task.FromResult(result);
     }

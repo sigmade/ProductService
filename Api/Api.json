@@ -49,6 +49,9 @@
   "components": {
     "schemas": {
       "ProductResponse": {
+        "required": [
+          "name"
+        ],
         "type": "object",
         "properties": {
           "id": {

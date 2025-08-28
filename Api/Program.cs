@@ -1,7 +1,7 @@
 using Core.Contracts.DiscountClient;
 using Core.Contracts.ProductRepository;
 using Core.UseCases.GetProduct;
-using Infrastructure.Clients.DIscountClient; // added
+using Infrastructure.Clients.DiscountClient;
 using Infrastructure.Repositories;
 
 namespace Api;
@@ -19,7 +19,7 @@ public class Program
         builder.Services.AddOpenApi();
 
         builder.Services.AddScoped<IProductRepository, ProductRepository>();
-        builder.Services.AddScoped<IDiscountClient, DiscountClient>(); // added
+        builder.Services.AddScoped<IDiscountClient, DiscountClient>();
         builder.Services.AddScoped<IGetProductUseCase, GetProductUseCase>();
 
         var app = builder.Build();

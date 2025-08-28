@@ -6,7 +6,7 @@ namespace Infrastructure.Repositories;
 
 public class ProductRepository : IProductRepository
 {
-    public async Task<ProductDataResult> GetById(ProductDataQuery query)
+    public Task<ProductDataResult> GetById(ProductDataQuery query)
     {
         var productSourceModel = new ProductSourceModel
         {
@@ -17,6 +17,6 @@ public class ProductRepository : IProductRepository
 
         var productDataResult = productSourceModel.ToDataResult();
 
-        return productDataResult;
+        return Task.FromResult(productDataResult);
     }
 }
