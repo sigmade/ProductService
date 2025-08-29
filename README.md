@@ -1,3 +1,12 @@
+# NOTE
+This repository is a demo project – a lightweight template showcasing the architecture style I use in my services. For a deeper explanation of the principles and evolution of the approach, see my articles:
+
+1. Architecture I Use in My Projects – https://medium.com/@yegor-sychev/architecture-i-use-in-my-projects-60ab8a1b3c45
+2. Architecture I Use in My Projects: Continuation – http://medium.com/@yegor-sychev/architecture-i-use-in-my-projects-continuation-37065b8cc870
+3. How Clean Architecture Differs From Layered – https://medium.com/@yegor-sychev/how-clean-architecture-differs-from-layered-e11862d073da
+
+---
+
 # ProductService
 
 ## Overview
@@ -32,7 +41,7 @@ Contains:
 Contains data source / external system shapes and mapping:
 - Repository models (ProductSourceModel) mapped to ProductDataResult.
 - Mapping helper: InfrastructureMapper.
-(Implementations of repository / discount client would live here� not shown if omitted.)
+(Implementations of repository / discount client would live here� not shown if omitted.)
 
 ### Api
 - ProductController exposes GET /api/product/{id}.
@@ -54,7 +63,7 @@ Contains data source / external system shapes and mapping:
   - Only applied when 0 < discount < 1.
   - Outside range -> ignored (base price returned unchanged).
 - Price Adjustment: Price = Round(Price * (1 - discount), 2) using midpoint rounding to nearest (default decimal.Round behavior).
-- Product identity is integer Id; no additional validation beyond presence in repository (assumed repository throws or handles not-found; controller presently always returns 200� extend for 404 handling if needed).
+- Product identity is integer Id; no additional validation beyond presence in repository (assumed repository throws or handles not-found; controller presently always returns 200� extend for 404 handling if needed).
 
 ## Mapping Strategy
 - Extension methods centralize transformations (CoreMapper, InfrastructureMapper, ApiMapper) keeping use case & controller logic focused.
