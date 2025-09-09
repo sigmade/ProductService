@@ -3,21 +3,15 @@ using Core.Models;
 
 namespace Core.UseCases.GetProduct;
 
-public class GetProductUseCase : IGetProductUseCase
+public class GetProductUseCase(IProductRepository repository)
+    : IGetProductUseCase
 {
-    private readonly IProductRepository _productRepository;
+    private readonly IProductRepository _productRepository = repository;
 
-    public GetProductUseCase(IProductRepository productRepository)
+    public async Task<Product> Execute(int id)
     {
-        _productRepository = productRepository;
-    }
+        var product = await _productRepository.GetById(id);
 
-    public async Task<ProductCoreResult> Execute(int id)
-    {
-        var productDataResult = await _productRepository.GetByIdAsync(id);
-
-        var productCoreResult = productDataResult.ToResult();
-
-        return productCoreResult;
+        return product;
     }
 }

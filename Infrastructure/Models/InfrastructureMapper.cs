@@ -1,12 +1,12 @@
-﻿using Core.Contracts;
+﻿using Core.Models;
 
 namespace Infrastructure.Models;
 
 public static class InfrastructureMapper
 {
-    public static ProductDataResult ToDataResult(this ProductSourceModel src)
+    public static Product ToResult(this ProductSourceModel src)
     {
-        var result = new ProductDataResult
+        var result = new Product
         {
             Id = src.Id,
             Name = src.Name,

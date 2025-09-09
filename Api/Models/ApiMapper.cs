@@ -4,7 +4,7 @@ namespace Api.Models;
 
 public static class ApiMapper
 {
-    public static ProductResponse ToResponse(this ProductCoreResult src)
+    public static ProductResponse ToResponse(this Product src)
     {
         var result = new ProductResponse
         {

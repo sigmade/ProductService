@@ -1,6 +1,8 @@
+using Core.Models;
+
 namespace Core.Contracts;
 
 public interface IProductRepository
 {
-    Task<ProductDataResult> GetByIdAsync(int id);
+    Task<Product> GetById(int id);
 }
