@@ -41,7 +41,7 @@ Contains:
 Contains data source / external system shapes and mapping:
 - Repository models (ProductSourceModel) mapped to ProductDataResult.
 - Mapping helper: InfrastructureMapper.
-(Implementations of repository / discount client would live here� not shown if omitted.)
+(Implementations of repository / discount client would live here not shown if omitted.)
 
 ### Api
 - ProductController exposes GET /api/product/{id}.
