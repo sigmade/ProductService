@@ -63,7 +63,7 @@ Contains data source / external system shapes and mapping:
   - Only applied when 0 < discount < 1.
   - Outside range -> ignored (base price returned unchanged).
 - Price Adjustment: Price = Round(Price * (1 - discount), 2) using midpoint rounding to nearest (default decimal.Round behavior).
-- Product identity is integer Id; no additional validation beyond presence in repository (assumed repository throws or handles not-found; controller presently always returns 200� extend for 404 handling if needed).
+- Product identity is integer Id; no additional validation beyond presence in repository (assumed repository throws or handles not-found; controller presently always returns 200 extend for 404 handling if needed).
 
 ## Mapping Strategy
 - Extension methods centralize transformations (CoreMapper, InfrastructureMapper, ApiMapper) keeping use case & controller logic focused.
